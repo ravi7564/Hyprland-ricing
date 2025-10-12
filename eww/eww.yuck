@@ -1,0 +1,54 @@
+(deflisten sys_stats "~/.config/eww/system_stats.sh")
+
+;; A widget for stats that have a progress bar and detailed text
+(defwidget stat_bar [label icon value class details]
+  (box :orientation "h" :space-evenly false :spacing 20 :class "stat-bar"
+    (box :orientation "h" :spacing 10 :halign "start"
+      (label :text icon :class "icon")
+      (label :text label)
+    )
+    (box :orientation "v" :spacing 5 :halign "end" :valign "center" :hexpand true
+      (scale
+        :min 0 :max 100
+        :value value
+        :orientation "h"
+        :class class
+        :width 90
+      )
+      (label :text details :halign "end" :class "details-label")
+    )
+  )
+)
+
+;; The main HUD window
+(defwindow sys-hud
+  :monitor 0
+  :geometry (geometry :anchor "top right" :x "20px" :y "20px" :width "200px") 
+  :stacking "bg"
+  :wm-ignore true
+  :blur true
+  (box :class "hud-box" :orientation "v" :space-evenly false :spacing 10 
+    (label :text "SYSTEM MONITOR" :class "hud-title" :halign "center")
+
+    ;; Stats
+    (stat_bar :icon "" :label "CPU" :value {sys_stats.cpu} :class "cpu-bar" :details "${sys_stats.cpu}%")
+    (stat_bar :icon "󰾆" :label "RAM" :value {sys_stats.ram_perc} :class "ram-bar" :details "${sys_stats.ram_used} / ${sys_stats.ram_total}")
+    (stat_bar :icon "󰍺" :label "GPU" :value {sys_stats.gpu_perc} :class "gpu-bar" :details "${sys_stats.gpu_perc}%")
+    (stat_bar :icon "" :label "TEMP" :value {sys_stats.temp} :class "temp-bar" :details "${sys_stats.temp}°C")
+    (stat_bar :icon "" :label "DISK" :value {sys_stats.disk_perc} :class "storage-bar" :details "${sys_stats.disk_used} / ${sys_stats.disk_total}")
+    
+    (box :class "separator")
+
+    ;; Network
+    (box :orientation "h" :space-evenly true :class "net-box"
+      (box :orientation "h" :spacing 1 :halign "start"
+        (label :text "" :class "net-down-icon")
+        (label :text {sys_stats.net_down})
+      )
+      (box :orientation "h" :spacing 1 :halign "end"
+        (label :text "" :class "net-up-icon")
+        (label :text {sys_stats.net_up})
+      )
+    )
+  )
+)
