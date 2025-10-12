@@ -61,12 +61,10 @@
     "tray": { "icon-size": 18, "spacing": 10 },
     "wireplumber": { "format": "{volume}% {icon}", "format-muted": " Muted", "format-icons": { "default": ["", ""] }, "on-click": "pavucontrol" },
     "network": {
-    "format-wifi": "  {essid}",
-    "format-ethernet": "󰈀 {ifname}",
+    "format-wifi": " {essid}",
+    "format-ethernet": "󰈀 Wired",
     "format-disconnected": "󰖪 Disconnected",
-    "tooltip-format-wifi": "Signal: {signalStrength}% | Down: {bandwidthDown} | Up: {bandwidthUp}",
-    "tooltip-format-ethernet": "Interface: {ifname} | IP: {ipaddr}/{cidr}",
-    "tooltip-format-disconnected": "No connection",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
     "on-click": "nm-applet"
     },
     "bluetooth": { "format": "󰂯 {status}", "format-disabled": "", "format-connected": "󰂯 {device_alias}", "tooltip-format": "{device_enumerate}", "on-click": "blueman-manager" },
