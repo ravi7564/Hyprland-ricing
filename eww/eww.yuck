@@ -1,4 +1,5 @@
 (deflisten sys_stats "~/.config/eww/system_stats.sh")
+(deflisten controls_data "~/.config/eww/get_controls.sh")
 
 ;; A widget for stats that have a progress bar and detailed text
 (defwidget stat_bar [label icon value class details]
@@ -23,7 +24,7 @@
 ;; The main HUD window
 (defwindow sys-hud
   :monitor 0
-  :geometry (geometry :anchor "top right" :x "20px" :y "20px" :width "200px") 
+  :geometry (geometry :anchor "top right" :x "10px" :y "20px" :width "320px") 
   :stacking "bg"
   :wm-ignore true
   :blur true
@@ -41,14 +42,48 @@
 
     ;; Network
     (box :orientation "h" :space-evenly true :class "net-box"
-      (box :orientation "h" :spacing 1 :halign "start"
+      (box :orientation "h" :spacing 10 :halign "start"
         (label :text "" :class "net-down-icon")
         (label :text {sys_stats.net_down})
       )
-      (box :orientation "h" :spacing 1 :halign "end"
+      (box :orientation "h" :spacing 10 :halign "end"
         (label :text "" :class "net-up-icon")
         (label :text {sys_stats.net_up})
       )
+    )
+  )
+)
+
+;; --- BRIGHTNESS AND SOUND CONTROLS ---
+
+(defwidget control-slider [ icon value onchange class]
+  (box :orientation "h" :space-evenly false :spacing 15 :class "control-slider-box"
+    (label :text icon :class "control-icon")
+    (scale
+      :min 0 :max 101
+      :value value
+      :onchange onchange
+      :orientation "h"
+      :class class
+      :width 200
+    )
+  )
+)
+
+(defwindow controls-widget
+  :monitor 0
+  :geometry (geometry :anchor "top right" :x "10px" :y "350px" :width "320px" )
+  :stacking "bg" :wm-ignore true :blur true
+  (box :class "controls-box" :orientation "v" :space-evenly false :spacing 15
+    (control-slider :icon "󰃟" :value {controls_data.brightness} :onchange "brightnessctl set {}%" :class "brightness-slider")
+    (box :orientation "h" :space-evenly false :spacing 15
+      (control-slider
+        :icon {controls_data.mute == "yes" ? "󰸈" : "󰕾"}
+        :value {controls_data.volume}
+        :onchange "pactl set-sink-volume @DEFAULT_SINK@ {}%"
+        :class "volume-slider"
+      )
+      (button :onclick "pactl set-sink-mute @DEFAULT_SINK@ toggle" :class "mute-button ${controls_data.mute == 'yes' ? 'muted' : ''}" "󰖁")
     )
   )
 )
