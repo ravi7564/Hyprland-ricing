@@ -1,0 +1,85 @@
+/* --- Wofi: Final Glass Grid Style --- */
+
+* {
+    font-family: "JetBrains Mono Nerd Font", monospace;
+    font-size: 14px;
+    background-color: transparent;
+}
+
+window {
+    background-color: rgba(28, 24, 24, 0.662); /* Catppuccin Macchiato Base, slightly opaque for readability */
+    border-radius: 16px;
+    border: 1px solid rgba(205, 214, 244, 0.1); /* Subtle Lavender border */
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4); /* Deeper shadow for a "floating glass" effect */
+}
+
+/* --- Search Bar --- */
+#input {
+    color: #cdd6f4; /* Catppuccin Text */
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    margin: 20px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+}
+
+#input:focus {
+    border: 1px solid #89b4fa; /* Catppuccin Blue */
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(137, 180, 250, 0.15);
+}
+
+/* --- Grid Container --- */
+#inner-box {
+    display: grid;
+    /* This creates a responsive grid. Adjust 120px to make items bigger or smaller */
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-gap: 20px; /* Space between the grid items */
+    padding: 20px; /* Padding around the entire grid */
+}
+
+/* --- Individual Grid Items (Entries) --- */
+#entry {
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+    /* Stack the icon and text vertically */
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+
+/* --- Hovered Grid Item --- */
+#entry:not(:selected):hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* --- Selected Grid Item --- */
+#entry:selected {
+    background-color: #89b4fa; /* Catppuccin Blue */
+}
+
+/* --- Entry Icons in Grid --- */
+#img {
+    margin-right: 0; /* Important for vertical centering */
+    margin-bottom: 10px; /* Space between icon and text */
+    min-height: 40px;
+    font-size: 40px; /* Makes icons prominent */
+}
+
+/* --- Entry Text in Grid --- */
+#text {
+    color: #cdd6f4;
+    text-align: center;
+    /* Hides long text gracefully */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 110px;
+}
+
+#text:selected {
+    color: #1e1e2e; /* Catppuccin Crust (Dark) */
+}
