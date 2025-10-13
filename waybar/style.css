@@ -7,11 +7,12 @@
 }
 
 window#waybar {
-    background-color: rgba(30, 30, 46, 0.6); /* semi-transparent */
-    border-radius: 12px;
+    background: rgba(25, 25, 25, 0.361);  /* transparent glass base */
     border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #ffffff;
-    padding: 4px 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    margin: 6px 10px;
+    transition: all 0.3s ease;
 }
 
 #workspaces button {
@@ -51,7 +52,7 @@ window#waybar {
 #wireplumber,
 #tray,
 #hyprland-window,
-#mpris, /* Added mpris to the list */
+#mpris, 
 #bluetooth {
     padding: 0 10px;
     margin: 0 2px;
@@ -62,11 +63,11 @@ window#waybar {
 }
 
 #battery.charging, #battery.plugged {
-    color: #a3be8c; /* Green */
+    color: #a3be8c; 
 }
 
 #battery.critical:not(.charging) {
-    background-color: #bf616a; /* Red */
+    background-color: #bf616a;
     color: #d8dee9;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -101,19 +102,17 @@ window#waybar {
     color: #a3be8c;
 }
 
-/* --- NEW STYLES FOR MPRIS ADDED HERE --- */
 #mpris {
-    color: #d8dee9; /* Default color */
+    color: #d8dee9;
 }
 
 #mpris.playing {
-    color: #a3be8c; /* Green when playing */
+    color: #a3be8c; 
 }
 
 #mpris.paused {
-    color: #ebcb8b; /* Yellow when paused */
+    color: #ebcb8b; 
 }
-/* -------------------------------------- */
 
 #custom-power {
     background-color: transparent;
@@ -131,19 +130,16 @@ tooltip label {
     color: #d8dee9;
 }
 
-/* --- Styles for New Media Controls --- */
-
 #mpris,
 #mpris-info,
 #custom-prev,
 #custom-next {
     padding: 0 10px;
-    background-color: transparent; /* Make background transparent */
-    color: #d8dee9; /* Set a consistent text color */
+    background-color: transparent;
+    color: #d8dee9; 
 }
 
-/* Optional: Keep a subtle color change for the text when active */
 #mpris.playing,
 #mpris.paused {
-    color: #a3be8c; /* Green text color (subtle) */
+    color: #a3be8c; 
 }
