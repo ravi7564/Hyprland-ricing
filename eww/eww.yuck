@@ -1,5 +1,5 @@
-(deflisten sys_stats "~/.config/eww/system_stats.sh")
-(deflisten controls_data "~/.config/eww/get_controls.sh")
+(deflisten sys_stats "~/.config/eww/stats.sh")
+(deflisten controls_data "~/.config/eww/controls.sh")
 
 ;; A widget for stats that have a progress bar and detailed text
 (defwidget stat_bar [label icon value class details]
