@@ -1,57 +1,13 @@
+
 * {
   all: unset;
   font-family: "JetBrains Mono Nerd Font", monospace;
   font-size: 12px;
 }
 
-.hud-box {
-  background-color: rgba(20, 20, 30, 0.545);
-  color: #cdd6f4;
-  border-radius: 10px;
-  padding: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-}
+/* import modules */
+@import "modules/hud.scss";
+@import "modules/scales.scss";
+@import "modules/controls.scss";
 
-.hud-title {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #cba6f7;
-  margin-bottom: 1px;
-}
 
-.icon { font-size: 1.3rem; min-width: 25px; }
-.details-label { font-size: 0.8rem; color: rgba(255, 255, 255, 0.7); }
-
-scale { min-height: 8px; min-width: 150px; }
-scale trough { background-color: rgba(0, 0, 0, 0.4); border-radius: 10px; min-height: 8px; }
-scale highlight { border-radius: 10px; }
-
-.cpu-bar highlight { background-image: linear-gradient(to right, #89b4fa, #b4befe); }
-.ram-bar highlight { background-image: linear-gradient(to right, #cba6f7, #f5c2e7); }
-.gpu-bar highlight { background-image: linear-gradient(to right, #a6e3a1, #f9e2af); }
-/* NEW: Added a style for the temperature bar */
-.temp-bar highlight { background-image: linear-gradient(to right, #f38ba8, #fab387); } /* Red -> Peach */
-.storage-bar highlight { background-image: linear-gradient(to right, #94e2d5, #74c7ec); }
-
-.separator { background-color: rgba(255, 255, 255, 0.1); min-height: 1px; margin: 5px 0; }
-
-.net-box { font-size: 0.9rem; }
-.net-down-icon { color: #89b4fa; }
-.net-up-icon { color: #a6e3a1; }
-
-/* --- BRIGHTNESS AND SOUND CONTROLS --- */
-.controls-box {
-  background-color: rgba(20, 20, 30, 0.518);
-  border-radius: 16px;
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-.control-icon { font-size: 1.4rem; color: #cdd6f4; }
-.control-slider-box scale trough { background-color: rgba(0, 0, 0, 0.4); border-radius: 10px; min-height: 10px; min-width: 200px; }
-.control-slider-box scale highlight { border-radius: 10px; }
-.brightness-slider highlight { background-image: linear-gradient(to right, #f9e2af, #fab387); }
-.volume-slider highlight { background-image: linear-gradient(to right, #94e2d5, #74c7ec); }
-.mute-button { font-size: 1.3rem; background-color: rgba(0, 0, 0, 0.2); color: #cdd6f4; padding: 0 12px; border-radius: 12px; }
-.mute-button.muted { background-color: #f38ba8; color: #1e1e2e; }

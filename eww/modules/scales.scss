@@ -1,0 +1,24 @@
+/* Scoped scales inside HUD or controls */
+.hud-box scale, .controls-box scale { 
+  min-height: 8px; 
+  min-width: 150px; 
+}
+
+.hud-box scale trough, .controls-box scale trough { 
+  background-color: rgba(0,0,0,0.4); 
+  border-radius: 10px; 
+  min-height: 8px; 
+}
+
+.hud-box scale highlight, .controls-box scale highlight { border-radius: 10px; }
+
+/* specific bars */
+.hud-box .cpu-bar highlight { background-image: linear-gradient(to right, #89b4fa, #b4befe); }
+.hud-box .ram-bar highlight { background-image: linear-gradient(to right, #cba6f7, #f5c2e7); }
+.hud-box .gpu-bar highlight { background-image: linear-gradient(to right, #a6e3a1, #f9e2af); }
+.hud-box .temp-bar highlight { background-image: linear-gradient(to right, #f38ba8, #fab387); }
+.hud-box .storage-bar highlight { background-image: linear-gradient(to right, #94e2d5, #74c7ec); }
+
+/* controls scales */
+.controls-box .brightness-slider highlight { background-image: linear-gradient(to right, #f9e2af, #fab387); }
+.controls-box .volume-slider highlight { background-image: linear-gradient(to right, #94e2d5, #74c7ec); }

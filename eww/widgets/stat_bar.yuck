@@ -1,0 +1,19 @@
+;; A widget for stats that have a progress bar and detailed text
+(defwidget stat_bar [label icon value class details]
+  (box :orientation "h" :space-evenly false :spacing 20 :class "stat-bar"
+    (box :orientation "h" :spacing 10 :halign "start"
+      (label :text icon :class "icon")
+      (label :text label)
+    )
+    (box :orientation "v" :spacing 5 :halign "end" :valign "center" :hexpand true
+      (scale
+        :min 0 :max 100
+        :value value
+        :orientation "h"
+        :class class
+        :width 90
+      )
+      (label :text details :halign "end" :class "details-label")
+    )
+  )
+)

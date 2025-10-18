@@ -1,0 +1,29 @@
+.hud-box {
+  background-color: rgba(20, 20, 30, 0.28);
+  color: #cdd6f4;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Scoped children only */
+.hud-box .hud-title { 
+  font-size: 1.1rem; 
+  font-weight: bold; 
+  color: #cba6f7; 
+  margin-bottom: 1px; 
+}
+
+.hud-box .icon { font-size: 1.3rem; min-width: 25px; }
+.hud-box .details-label { font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+
+.hud-box .separator { 
+  background-color: rgba(255,255,255,0.1); 
+  min-height: 1px; 
+  margin: 5px 0; 
+}
+
+.hud-box .net-box { font-size: 0.9rem; }
+.hud-box .net-down-icon { color: #89b4fa; }
+.hud-box .net-up-icon { color: #a6e3a1; }

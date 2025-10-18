@@ -1,0 +1,20 @@
+.side-bar {
+  /* Main bar styling */
+  background-color: rgba(223, 28, 122, 0.8);
+  border-radius: 0 12px 12px 0; /* Rounded right corners */
+  padding: 8px 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+
+  label.side-bar-item {
+    font-size: 10px; /* Small font size is essential for fitting text */
+    color: #cdd6f4;
+    
+    min-height: 15px; 
+    padding: 2px 5px; /* Padding for horizontal text */
+
+    &:hover {
+      color: #f38ba8;
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+  }
+}

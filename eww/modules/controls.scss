@@ -1,0 +1,29 @@
+.controls-box {
+  background-color: rgba(20, 20, 30, 0.27);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.controls-box .control-icon { font-size: 1.4rem; color: #cdd6f4; }
+
+.controls-box .control-slider-box scale trough { 
+  background-color: rgba(0,0,0,0.4); 
+  border-radius: 10px; 
+  min-height: 10px; 
+  min-width: 200px; 
+}
+.controls-box .control-slider-box scale highlight { border-radius: 10px; }
+
+.controls-box .mute-button { 
+  font-size: 1.3rem; 
+  background-color: rgba(0,0,0,0.2); 
+  color: #cdd6f4; 
+  padding: 0 12px; 
+  border-radius: 12px; 
+}
+.controls-box .mute-button.muted { 
+  background-color: #f38ba8; 
+  color: #1e1e2e; 
+}

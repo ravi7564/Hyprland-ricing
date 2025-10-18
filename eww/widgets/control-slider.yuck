@@ -1,0 +1,13 @@
+(defwidget control-slider [ icon value onchange class]
+  (box :orientation "h" :space-evenly false :spacing 15 :class "control-slider-box"
+    (label :text icon :class "control-icon")
+    (scale
+      :min 0 :max 101
+      :value value
+      :onchange onchange
+      :orientation "h"
+      :class class
+      :width 200
+    )
+  )
+)
